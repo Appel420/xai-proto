@@ -1,8 +1,6 @@
 syntax = "proto3";
 
-package xai_api;
-
-import "google/protobuf/timestamp.proto";
+package ";
 import "xai/api/v1/deferred.proto";
 import "xai/api/v1/documents.proto";
 import "xai/api/v1/image.proto";
@@ -179,7 +177,7 @@ message GetChatCompletionResponse {
 
   // A UNIX timestamp (UTC) indicating when the response object was created.
   // The timestamp is taken when the model starts generating response.
-  google.protobuf.Timestamp created = 5;
+
 
   // The name of the model used for the request. This model name contains
   // the actual model name used rather than any aliases.
@@ -216,7 +214,7 @@ message GetChatCompletionChunk {
 
   // A UNIX timestamp (UTC) indicating when the response object was created.
   // The timestamp is taken when the model starts generating response.
-  google.protobuf.Timestamp created = 3;
+   = 3;
 
   // The name of the model used for the request. This model name contains
   // the actual model name used rather than any aliases.
@@ -654,12 +652,12 @@ message XSearch {
   // Optional start date for search results in ISO-8601 YYYY-MM-DD format (e.g., "2024-05-24").
   // Only content after this date will be considered. Defaults to unset (no start date restriction).
   // See https://en.wikipedia.org/wiki/ISO_8601 for format details.
-  optional google.protobuf.Timestamp from_date = 1;
+  optional = 1;
 
   // Optional end date for search results in ISO-8601 YYYY-MM-DD format (e.g., "2024-12-24").
   // Only content before this date will be considered. Defaults to unset (no end date restriction).
   // See https://en.wikipedia.org/wiki/ISO_8601 for format details.
-  optional google.protobuf.Timestamp to_date = 2;
+  optional  = 2;
 
   // Optional list of X usernames (without the '@' symbol) to limit search results to posts
   // from specific accounts (e.g., ["xai"]). If set, only posts authored by these
