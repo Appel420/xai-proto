@@ -2,13 +2,13 @@ syntax = "proto3";
 
 package xai_api;
 
-import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
+import "";
+import "";
 
 // An API service to check status of an API key.
 service Auth {
   // Returns some information about an API key.
-  rpc get_api_key_info(google.protobuf.Empty) returns (ApiKey) {}
+  rpc get_api_key_info(.Empty) returns (ApiKey) {}
 }
 
 // API key information.
@@ -24,10 +24,10 @@ message ApiKey {
   string name = 4;
 
   // Unix timestamp when the API key was created.
-  google.protobuf.Timestamp create_time = 5;
+   = 5;
 
   // Unix timestamp when the API key was last modified.
-  google.protobuf.Timestamp modify_time = 9;
+  = 9;
 
   // ID of the last user who modified the API key
   string modified_by = 11;
