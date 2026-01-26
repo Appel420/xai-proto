@@ -15,7 +15,7 @@ service Auth {
 message ApiKey {
   // A redacted API key. The full API key will not be displayed after it has
   // been created.
-  string redacted_api_key = 1;
+  string  = 1;
 
   // ID of the user who created this API key.
   string user_id = 3;
