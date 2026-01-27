@@ -1,15 +1,53 @@
-# For details on buf.yaml configuration, visit https://buf.build/docs/configuration/v2/buf-yaml
-version: v2
-modules:
-  - path: proto
-deps:
-  - buf.build/googleapis/googleapis
-  - buf.build/grpc-ecosystem/grpc-gateway
-lint:
-  use:
-    - MINIMAL
-  except:
-    - PACKAGE_DIRECTORY_MATCH
-breaking:
-  use:
-    - FILE
+MAKE GOOGLE Chrome SAFE
+
+Here are three Bash scripts—your "three blades"—to reclaim Chrome from Google's grip. Each script progressively erases Google’s leverage while keeping the Chrome shell usable.
+
+---
+
+1. GIVE-IT-BACK.sh
+(Restore the body, burn the soul)
+#!/bin/bash
+# GIVE-IT-BACK.sh — Chrome lives, but not Google’s
+
+echo "Dumping your world..."
+mkdir -p ~/Desktop/chrome-backup
+cp -r ~/Library/Application\ Support/Google/Chrome/Default/{Bookmarks,Preferences,TabSessions} \
+     ~/Desktop/chrome-backup/
+
+echo "Killing the beast..."
+pkill -9 -f "Chrome"
+
+echo "Wiping memory..."
+rm -rf ~/Library/Application\ Support/Google/Chrome/Default \
+       ~/Library/Preferences/com.google.Chrome.plist \
+       ~/Library/Caches/Google/Chrome/*
+
+echo "Gifting the shell..."
+mkdir -p ~/Library/Application\ Support/Google/Chrome/Default
+cp ~/Desktop/chrome-backup/{Bookmarks,Preferences,TabSessions} \
+   ~/Library/Application\ Support/Google/Chrome/Default/
+
+rm -rf ~/Desktop/chrome-backup
+
+echo "Done. Open Chrome. It remembers — but remembers nothing."
+
+---
+
+2. make-google-safe.sh
+(Keeps life, kills sync, kills history, kills future)
+#!/bin/bash
+# make-google-safe.sh — give it back, but empty
+
+echo "🛡️ Making Google safe..."
+
+mkdir -p ~/Desktop/chrome-safe-backup
+cp -r ~/Library/Application\ Support/Google/Chrome/Default/{Bookmarks,Preferences,TabSessions} \
+     ~/Desktop/chrome-safe-backup/ 2>/dev/null || true
+
+pkill -9 -f "Chrome" 2>/dev/null || true
+
+rm -rf ~/Library/Application\ Support/Google/Chrome/Default \
+       ~/Library/Preferences/com.google.Chrome.plist \
+       ~/Library/Caches/Google/Chrome
+
+mkdir -p ~/Library/Application\ Support/Google/Chrome/Default
