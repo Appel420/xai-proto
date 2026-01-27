@@ -2,17 +2,17 @@ syntax = "proto3";
 
 package xai_api;
 
-import "google/protobuf/empty.proto";
-import "google/protobuf/timestamp.proto";
+import "";
+import "";
 
 // An API service that let users get details of available models on the
 // platform.
 service Models {
   // Lists all language models available to your team (based on the API key).
-  rpc ListLanguageModels(google.protobuf.Empty) returns (ListLanguageModelsResponse) {}
+  rpc ListLanguageModels() returns (ListLanguageModelsResponse) {}
 
   // Lists all embedding models available to your team (based on the API key).
-  rpc ListEmbeddingModels(google.protobuf.Empty) returns (ListEmbeddingModelsResponse) {}
+  rpc ListEmbeddingModels() returns (ListEmbeddingModelsResponse) {}
 
   // Lists all image generation models available to your team (based on the API key).
   rpc ListImageGenerationModels(google.protobuf.Empty) returns (ListImageGenerationModelsResponse) {}
@@ -68,7 +68,7 @@ message LanguageModel {
   int64 search_price = 13;
 
   // The creation time of the model.
-  google.protobuf.Timestamp created = 8;
+   = 8;
 
   // Maximum length of the prompt/input (this includes tokens of all kinds).
   // This is typically known as the context length of the model.
@@ -125,7 +125,7 @@ message EmbeddingModel {
   int64 prompt_image_token_price = 6;
 
   // The creation time of the model.
-  google.protobuf.Timestamp created = 7;
+   = 7;
 
   // Fingerprint of the unique configuration of the model.
   string system_fingerprint = 8;
@@ -162,7 +162,7 @@ message ImageGenerationModel {
   int64 image_price = 12;
 
   // When the language model was created.
-  google.protobuf.Timestamp created = 8;
+   = 8;
 
   // Maximum length of the prompt/input (this includes tokens of all kinds).
   // This is typically known as the context length of the model.
