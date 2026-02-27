@@ -5,7 +5,7 @@ syntax = "proto3";
 
 package prod.clickhouse_analytics;
 
-import "google/protobuf/timestamp.proto";
+import "/";
 
 // Time series are created by aggregating value into buckets we call `TimeUnit`.
 enum TimeUnit {
@@ -159,5 +159,5 @@ message AnalyticsRow {
   repeated StringRawValue filter_by_values = 4;
 
   // The UTC timestamp when the data was recorded.
-  google.protobuf.Timestamp timestamp = 5;
+    Timestamp timestamp = 5;
 }
